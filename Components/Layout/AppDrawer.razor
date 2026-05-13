@@ -1,0 +1,10 @@
+﻿<MudDrawer Open="Open" OpenChanged="OpenChanged" backgr Variant="DrawerVariant.Temporary" Elevation="20" Style="z-index:2000;">
+    <AppDrawerHeader OnToggle="OnToggle" />
+    <NavMenu />
+</MudDrawer>
+
+@code {
+    [Parameter] public bool Open { get; set; }
+    [Parameter] public EventCallback<bool> OpenChanged { get; set; }
+    [Parameter] public EventCallback OnToggle { get; set; }
+}

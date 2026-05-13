@@ -27,6 +27,7 @@ public static class AppTheme
             TextPrimary = "#ffffff",
             TextSecondary = "#9e9e9e",
             Divider = "#2e2e2e",
+            DrawerBackground = "#1a1a1a"
         }
     };
 }

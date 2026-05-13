@@ -5,7 +5,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddDI();
-
+builder.Services.AddScoped<SkillsService>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

@@ -1,0 +1,16 @@
+﻿<MudAppBar Elevation="1">
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="OnMenuClick" />
+    <MudLink Href="/" Color="Color.Inherit" Underline="Underline.None" Typo="Typo.h6">Portfolio</MudLink>
+    <MudSpacer />
+    <MudToggleIconButton Toggled="IsDarkMode"
+                         ToggledChanged="OnThemeToggle"
+                         Icon="@Icons.Material.Filled.DarkMode"
+                         ToggledIcon="@Icons.Material.Filled.WbSunny"
+                         Color="Color.Inherit" />
+</MudAppBar>
+
+@code {
+    [Parameter] public EventCallback OnMenuClick { get; set; }
+    [Parameter] public bool IsDarkMode { get; set; }
+    [Parameter] public EventCallback<bool> OnThemeToggle { get; set; }
+}

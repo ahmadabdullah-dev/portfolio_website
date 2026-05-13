@@ -1,0 +1,48 @@
+﻿@page "/skills"
+@using portfolio_website.Models
+@using portfolio_website.Services
+@inject SkillsService SkillsService
+
+<PageTitle>Skills — Portfolio</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="py-10">
+
+    <MudText Typo="Typo.h3" GutterBottom="true">My Skills</MudText>
+    <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-8">
+        The technologies and disciplines I work with every day.
+    </MudText>
+
+    @if (_loading)
+    {
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    }
+    else
+    {
+        <MudGrid>
+            @foreach (var skill in _skills)
+            {
+                <MudItem xs="12" sm="6" md="4" lg="3">
+                    <MudCard Height="100%">
+                        <MudCardContent>
+                            <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="3">          
+                                <MudText Typo="Typo.h6">@skill.Name</MudText>
+                            </MudStack>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    }
+
+</MudContainer>
+
+@code {
+    private List<Skill> _skills = new();
+    private bool _loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _skills = await SkillsService.GetAllAsync();
+        _loading = false;
+    }
+}

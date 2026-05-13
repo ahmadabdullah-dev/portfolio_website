@@ -6,23 +6,11 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-
-    <MudAppBar Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="DrawerToggle" />
-        <MudText Typo="Typo.h6" Class="ml-2">Portfolio</MudText>
-        <MudSpacer />
-        <MudToggleIconButton Toggled="ThemeService.IsDarkMode" ToggledChanged="ToggleDarkMode" Icon="@Icons.Material.Filled.DarkMode" ToggledIcon="@Icons.Material.Filled.WbSunny" Color="Color.Inherit" />
-    </MudAppBar>
-
-    <MudDrawer @bind-Open="_drawerOpen" Variant="DrawerVariant.Temporary" Elevation="20" Style="z-index:2000;">
-        <AppDrawerHeader OnToggle="DrawerToggle" />
-        <NavMenu />
-    </MudDrawer>
-
+    <AppHeader OnMenuClick="DrawerToggle" IsDarkMode="ThemeService.IsDarkMode" OnThemeToggle="async val => await ThemeService.SetDarkModeAsync(val)" />
+    <AppDrawer Open="_drawerOpen" OpenChanged="val => _drawerOpen = val" OnToggle="DrawerToggle" />
     <MudMainContent>
         @Body
     </MudMainContent>
-
 </MudLayout>
 
 @code {
@@ -35,11 +23,6 @@
             await ThemeService.InitializeAsync();
             StateHasChanged();
         }
-    }
-
-    private async Task ToggleDarkMode(bool value)
-    {
-        await ThemeService.SetDarkModeAsync(value);
     }
 
     void DrawerToggle() => _drawerOpen = !_drawerOpen;

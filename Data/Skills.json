@@ -2,19 +2,16 @@
   {
     "id": 1,
     "name": "C#",
-    "category": "Backend",
-    "iconUrl": "https://imgs.search.brave.com/VGSB2cjzZQ8A_4aJVhzAIkuaYbTRjPdNKaRaaa0pFgg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9jLS00LnN2Zw"
+    "category": "Backend"
   },
   {
     "id": 2,
     "name": "Blazor",
-    "category": "Frontend",
-    "iconUrl": "https://imgs.search.brave.com/eXRQ52BHncCuXqCPjgyrSyyI5tBvw-NPPz1u6t5Xtaw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuY2RubG9nby5j/b20vbG9nb3MvYi82/Ny9ibGF6b3Iuc3Zn"
+    "category": "Frontend"
   },
   {
     "id": 3,
     "name": "SQL Server",
-    "category": "Database",
-    "iconUrl": "https://imgs.search.brave.com/LNuiQVBgPm97PGhoarrpsCwzPecQVIC5upDj8UQzknw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9taWNyb3NvZnQt/c3FsLXNlcnZlci0x/LnN2Zw"
+    "category": "Database"
   }
 ]

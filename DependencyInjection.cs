@@ -5,8 +5,7 @@ public static class DependencyInjection
     {
         services.AddMudServices();
         services.AddScoped<ThemeService>();
-
-
+        services.AddScoped<SkillsService>();
         return services;
     }
 }

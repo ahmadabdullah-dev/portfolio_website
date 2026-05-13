@@ -1,0 +1,31 @@
+﻿@page "/Error"
+@using System.Diagnostics
+
+<PageTitle>Error</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-16 text-center">
+
+    <MudIcon Icon="@Icons.Material.Filled.ErrorOutline" Color="Color.Error" Size="Size.Large" Class="mb-4" />
+
+    <MudText Typo="Typo.h4" Color="Color.Error" GutterBottom="true"> Something went wrong </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-4"> An unexpected error occurred. Please try again or contact support. </MudText>
+
+    @if (ShowRequestId)
+    {
+        <MudAlert Severity="Severity.Warning" Class="mb-4"> Request ID: <code>@RequestId</code> </MudAlert>
+    }
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/"> Go Home </MudButton>
+
+</MudContainer>
+
+@code {
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    private string? RequestId { get; set; }
+    private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    protected override void OnInitialized() => RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
+}
